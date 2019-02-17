@@ -33,7 +33,14 @@ class main_module
 
 	function base()
 	{
-		var_dump('here');
+		global $phpbb_container;
+
+		$this->request = $phpbb_container->get('request');
+
+
+		$this->tpl_name = 'acp_main';
+		add_form_key('acp_members');
+		$page = $this->request->variable('page', 0);
 	}
 
 }
